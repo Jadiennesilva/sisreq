@@ -16,8 +16,10 @@ class Servico {
 	private $especificacao;
 	private $obrigatorio_especificar;
 	private $obrigatorio_justificar;
+	private $setor_id;
     public function __construct(){
 
+        $this->setor_id = new Setor();
     }
 	public function setId($id) {
 		$this->id = $id;
@@ -68,8 +70,15 @@ class Servico {
 	public function getObrigatorio_justificar() {
 		return $this->obrigatorio_justificar;
 	}
+	public function setSetor_id(Setor $setor) {
+		$this->setor_id = $setor;
+	}
+		    
+	public function getSetor_id() {
+		return $this->setor_id;
+	}
 	public function __toString(){
-	    return $this->id.' - '.$this->numero.' - '.$this->descricao.' - '.$this->justificativa.' - '.$this->especificacao.' - '.$this->obrigatorio_especificar.' - '.$this->obrigatorio_justificar;
+	    return $this->id.' - '.$this->numero.' - '.$this->descricao.' - '.$this->justificativa.' - '.$this->especificacao.' - '.$this->obrigatorio_especificar.' - '.$this->obrigatorio_justificar.' - '.$this->setor_id;
 	}
                 
 

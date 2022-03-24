@@ -36,7 +36,8 @@ CREATE TABLE servico (
         justificativa character varying(400), 
         especificacao character varying(400), 
         obrigatorio_especificar character varying(400), 
-        obrigatorio_justificar character varying(400)
+        obrigatorio_justificar character varying(400), 
+        id_setor_id integer NOT NULL
 );
 
 CREATE TABLE usuario (
@@ -88,6 +89,11 @@ ALTER TABLE solicitacoes
 ALTER TABLE solicitacoes 
     ADD CONSTRAINT fk_solicitacoes_assinatura_id FOREIGN KEY (id_assinaturas)
     REFERENCES assinaturas (id);
+
+
+ALTER TABLE servico 
+    ADD CONSTRAINT fk_servico_setor_id FOREIGN KEY (id_setor)
+    REFERENCES setor (id);
 
 
 ALTER TABLE usuario 

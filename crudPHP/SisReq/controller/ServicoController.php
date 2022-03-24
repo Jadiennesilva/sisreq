@@ -8,6 +8,7 @@
 
 namespace SisReq\controller;
 use SisReq\dao\ServicoDAO;
+use SisReq\dao\SetorDAO;
 use SisReq\model\Servico;
 use SisReq\view\ServicoView;
 
@@ -66,10 +67,13 @@ class ServicoController {
 	public function add() {
             
         if(!isset($_POST['enviar_servico'])){
-            $this->view->showInsertForm();
+            $setorDao = new SetorDAO($this->dao->getConnection());
+            $listSetor = $setorDao->fetch();
+
+            $this->view->showInsertForm($listSetor);
 		    return;
 		}
-		if (! ( isset ( $_POST ['numero'] ) && isset ( $_POST ['descricao'] ) && isset ( $_POST ['justificativa'] ) && isset ( $_POST ['especificacao'] ) && isset ( $_POST ['obrigatorio_especificar'] ) && isset ( $_POST ['obrigatorio_justificar'] ))) {
+		if (! ( isset ( $_POST ['numero'] ) && isset ( $_POST ['descricao'] ) && isset ( $_POST ['justificativa'] ) && isset ( $_POST ['especificacao'] ) && isset ( $_POST ['obrigatorio_especificar'] ) && isset ( $_POST ['obrigatorio_justificar'] ) &&  isset($_POST ['setor_id']))) {
 			echo '
                 <div class="alert alert-danger" role="alert">
                     Failed to register. Some field must be missing. 
@@ -85,6 +89,7 @@ class ServicoController {
 		$servico->setEspecificacao ( $_POST ['especificacao'] );
 		$servico->setObrigatorio_especificar ( $_POST ['obrigatorio_especificar'] );
 		$servico->setObrigatorio_justificar ( $_POST ['obrigatorio_justificar'] );
+		$servico->getSetor_id()->setId ( $_POST ['setor_id'] );
             
 		if ($this->dao->insert ($servico ))
         {
@@ -118,7 +123,7 @@ class ServicoController {
         
 		    
 		
-		if (! ( isset ( $_POST ['numero'] ) && isset ( $_POST ['descricao'] ) && isset ( $_POST ['justificativa'] ) && isset ( $_POST ['especificacao'] ) && isset ( $_POST ['obrigatorio_especificar'] ) && isset ( $_POST ['obrigatorio_justificar'] ))) {
+		if (! ( isset ( $_POST ['numero'] ) && isset ( $_POST ['descricao'] ) && isset ( $_POST ['justificativa'] ) && isset ( $_POST ['especificacao'] ) && isset ( $_POST ['obrigatorio_especificar'] ) && isset ( $_POST ['obrigatorio_justificar'] ) &&  isset($_POST ['setor_id']))) {
 			echo ':incompleto';
 			return;
 		}
@@ -130,6 +135,7 @@ class ServicoController {
 		$servico->setEspecificacao ( $_POST ['especificacao'] );
 		$servico->setObrigatorio_especificar ( $_POST ['obrigatorio_especificar'] );
 		$servico->setObrigatorio_justificar ( $_POST ['obrigatorio_justificar'] );
+		$servico->getSetor_id()->setId ( $_POST ['setor_id'] );
             
 		if ($this->dao->insert ( $servico ))
         {
@@ -153,11 +159,14 @@ class ServicoController {
 	    $this->dao->fillById($selected);
 	        
         if(!isset($_POST['edit_servico'])){
-            $this->view->showEditForm($selected);
+            $setorDao = new SetorDAO($this->dao->getConnection());
+            $listSetor = $setorDao->fetch();
+
+            $this->view->showEditForm($listSetor, $selected);
             return;
         }
             
-		if (! ( isset ( $_POST ['numero'] ) && isset ( $_POST ['descricao'] ) && isset ( $_POST ['justificativa'] ) && isset ( $_POST ['especificacao'] ) && isset ( $_POST ['obrigatorio_especificar'] ) && isset ( $_POST ['obrigatorio_justificar'] ))) {
+		if (! ( isset ( $_POST ['numero'] ) && isset ( $_POST ['descricao'] ) && isset ( $_POST ['justificativa'] ) && isset ( $_POST ['especificacao'] ) && isset ( $_POST ['obrigatorio_especificar'] ) && isset ( $_POST ['obrigatorio_justificar'] ) &&  isset($_POST ['setor_id']))) {
 			echo "Incompleto";
 			return;
 		}
