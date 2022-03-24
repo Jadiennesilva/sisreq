@@ -1,0 +1,19 @@
+.jumbotron {
+    background-color:#3CB371;
+   
+} 
+
+.album {
+    background-color: #3CB371 !important;
+}
+
+h1.jumbotron-heading{
+    font-weight: bold;
+}
+
+p.container{
+    font-style: normal;
+}
+
+
+
