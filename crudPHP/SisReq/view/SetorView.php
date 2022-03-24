@@ -15,7 +15,7 @@ class SetorView {
 		echo '
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary m-3" data-toggle="modal" data-target="#modalAddSetor">
-  Adicionar informações do setor
+  Adicionar
 </button>
 
 <!-- Modal -->
@@ -49,7 +49,7 @@ class SetorView {
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
         <button form="insert_form_setor" type="submit" class="btn btn-primary">Cadastrar</button>
       </div>
     </div>

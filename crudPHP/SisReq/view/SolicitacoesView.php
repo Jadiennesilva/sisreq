@@ -15,7 +15,7 @@ class SolicitacoesView {
 		echo '
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary m-3" data-toggle="modal" data-target="#modalAddSolicitacoes">
-  Adicionar informações de solicitações
+  Adicionar
 </button>
 
 <!-- Modal -->
@@ -75,7 +75,7 @@ class SolicitacoesView {
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
         <button form="insert_form_solicitacoes" type="submit" class="btn btn-primary">Cadastrar</button>
       </div>
     </div>

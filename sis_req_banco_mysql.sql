@@ -36,7 +36,8 @@ CREATE TABLE IF NOT EXISTS servico (
         justificativa VARCHAR(400), 
         especificacao VARCHAR(400), 
         obrigatorio_especificar VARCHAR(400), 
-        obrigatorio_justificar VARCHAR(400)
+        obrigatorio_justificar VARCHAR(400), 
+        id_setor_id INT NOT NULL
 )ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS usuario (
@@ -84,6 +85,10 @@ ALTER TABLE solicitacoes
 ALTER TABLE solicitacoes
     ADD CONSTRAINT fk_solicitacoes_assinatura_id FOREIGN KEY (id_assinaturas)
     REFERENCES assinaturas (id);
+
+ALTER TABLE servico
+    ADD CONSTRAINT fk_servico_setor_id FOREIGN KEY (id_setor)
+    REFERENCES setor (id);
 
 ALTER TABLE usuario
     ADD CONSTRAINT fk_usuario_tipo FOREIGN KEY (id_tipo_usuario)

@@ -15,7 +15,7 @@ class RequerenteView {
 		echo '
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary m-3" data-toggle="modal" data-target="#modalAddRequerente">
-  Adicionar informações de requerente
+  Adicionar
 </button>
 
 <!-- Modal -->
@@ -86,7 +86,7 @@ class RequerenteView {
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
         <button form="insert_form_requerente" type="submit" class="btn btn-primary">Cadastrar</button>
       </div>
     </div>

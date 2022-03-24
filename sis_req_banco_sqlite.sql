@@ -32,7 +32,8 @@ CREATE TABLE servico (
     justificativa TEXT ,
     especificacao TEXT ,
     obrigatorio_especificar TEXT ,
-    obrigatorio_justificar TEXT 
+    obrigatorio_justificar TEXT ,
+    id_setor_id INTEGER NOT NULL
 );
 
 CREATE TABLE usuario (

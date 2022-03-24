@@ -11,11 +11,11 @@ use SisReq\model\Servico;
 
 
 class ServicoView {
-    public function showInsertForm() {
+    public function showInsertForm($listaSetor_id) {
 		echo '
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary m-3" data-toggle="modal" data-target="#modalAddServico">
-  Adicionar informações de serviço
+  Adicionar
 </button>
 
 <!-- Modal -->
@@ -63,13 +63,25 @@ class ServicoView {
                                             <label for="obrigatorio_justificar">Obrigatorio_justificar</label>
                                             <input type="text" class="form-control"  name="obrigatorio_justificar" id="obrigatorio_justificar" placeholder="Obrigatorio_justificar">
                                         </div>
+                                        <div class="form-group">
+                                          <label for="setor_id">Setor_id</label>
+                						  <select class="form-control" id="setor_id" name="setor_id">
+                                            <option value="">Selecione o Setor_id</option>';
+                                                
+        foreach( $listaSetor_id as $element){
+            echo '<option value="'.$element->getId().'">'.$element.'</option>';
+        }
+            
+        echo '
+                                          </select>
+                						</div>
 
 						              </form>
 
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
         <button form="insert_form_servico" type="submit" class="btn btn-primary">Cadastrar</button>
       </div>
     </div>
@@ -99,32 +111,48 @@ class ServicoView {
                                             
                                             
 		<div class="table-responsive">
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-        <thead>
-            <tr>
-                <th>Código</th>
-                <th>Serviço</th>
-                <th>Setor</th>
-            </tr>
-        </thead>
-        <tbody>';
+			<table class="table table-bordered" id="dataTable" width="100%"
+				cellspacing="0">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Numero</th>
+						<th>Descricao</th>
+						<th>Justificativa</th>
+						<th>Setor_id</th>
+                        <th>Actions</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+                        <th>Id</th>
+                        <th>Numero</th>
+                        <th>Descricao</th>
+                        <th>Justificativa</th>
+						<th>Setor_id</th>
+                        <th>Actions</th>
+					</tr>
+				</tfoot>
+				<tbody>';
             
             foreach($lista as $element){
                 echo '<tr>';
-                echo '  <td>'.$element->getNumero().'</td>';
-                echo '  <td>'.$element->getDescricao().'</td>';
-                echo '  <td>'.$element->getSetorId().'</td>';
-                echo '  <td>
-                            <a href="?page=servico&select='.$element->getId().'" class="btn btn-info text-white">Select</a>
-                            <a href="?page=servico&edit='.$element->getId().'" class="btn btn-success text-white">Edit</a>
-                            <a href="?page=servico&delete='.$element->getId().'" class="btn btn-danger text-white">Delete</a>
-                        </td>';
+                echo '<td>'.$element->getId().'</td>';
+                echo '<td>'.$element->getNumero().'</td>';
+                echo '<td>'.$element->getDescricao().'</td>';
+                echo '<td>'.$element->getJustificativa().'</td>';
+                echo '<td>'.$element->getSetor_id().'</td>';
+                echo '<td>
+                        <a href="?page=servico&select='.$element->getId().'" class="btn btn-info text-white">Select</a>
+                        <a href="?page=servico&edit='.$element->getId().'" class="btn btn-success text-white">Edit</a>
+                        <a href="?page=servico&delete='.$element->getId().'" class="btn btn-danger text-white">Delete</a>
+                      </td>';
                 echo '</tr>';
             }
             
         echo '
-                </tbody>
-            </table>
+				</tbody>
+			</table>
 		</div>
             
             
@@ -138,7 +166,7 @@ class ServicoView {
             
 
             
-	public function showEditForm(Servico $selecionado) {
+	public function showEditForm($listaSetor_id, Servico $selecionado) {
 		echo '
 	    
 	    
@@ -173,6 +201,18 @@ class ServicoView {
                                         <div class="form-group">
                                             <label for="obrigatorio_justificar">Obrigatorio_justificar</label>
                                             <input type="text" class="form-control" value="'.$selecionado->getObrigatorio_justificar().'"  name="obrigatorio_justificar" id="obrigatorio_justificar" placeholder="Obrigatorio_justificar">
+                						</div>
+                                        <div class="form-group">
+                                          <label for="setor_id">Setor_id</label>
+                						  <select class="form-control" id="setor_id" name="setor_id">
+                                            <option value="">Selecione o Setor_id</option>';
+                                                
+        foreach( $listaSetor_id as $element){
+            echo '<option value="'.$element->getId().'">'.$element.'</option>';
+        }
+            
+        echo '
+                                          </select>
                 						</div>
                 <input type="hidden" value="1" name="edit_servico">
                 </form>
@@ -210,6 +250,7 @@ class ServicoView {
                 Especificacao: '.$servico->getEspecificacao().'<br>
                 Obrigatorio_especificar: '.$servico->getObrigatorio_especificar().'<br>
                 Obrigatorio_justificar: '.$servico->getObrigatorio_justificar().'<br>
+                Setor_id: '.$servico->getSetor_id().'<br>
             
             </div>
         </div>
