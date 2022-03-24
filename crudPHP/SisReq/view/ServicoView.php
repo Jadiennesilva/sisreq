@@ -15,7 +15,7 @@ class ServicoView {
 		echo '
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary m-3" data-toggle="modal" data-target="#modalAddServico">
-  Adicionar
+    Adicionar informações de serviço
 </button>
 
 <!-- Modal -->
@@ -81,7 +81,7 @@ class ServicoView {
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
         <button form="insert_form_servico" type="submit" class="btn btn-primary">Cadastrar</button>
       </div>
     </div>
@@ -111,42 +111,39 @@ class ServicoView {
                                             
                                             
 		<div class="table-responsive">
-			<table class="table table-bordered" id="dataTable" width="100%"
-				cellspacing="0">
-				<thead>
-					<tr>
-						<th>Id</th>
-						<th>Numero</th>
-						<th>Descricao</th>
-						<th>Justificativa</th>
-						<th>Setor_id</th>
-                        <th>Actions</th>
-					</tr>
-				</thead>
-				<tfoot>
-					<tr>
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
                         <th>Id</th>
                         <th>Numero</th>
                         <th>Descricao</th>
                         <th>Justificativa</th>
-						<th>Setor_id</th>
+                        <th>Setor_id</th>
                         <th>Actions</th>
-					</tr>
-				</tfoot>
-				<tbody>';
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Id</th>
+                        <th>Numero</th>
+                        <th>Descricao</th>
+                        <th>Justificativa</th>
+                        <th>Setor_id</th>
+                        <th>Actions</th>
+                    </tr>
+                </tfoot>
+            <tbody>';
             
             foreach($lista as $element){
                 echo '<tr>';
-                echo '<td>'.$element->getId().'</td>';
-                echo '<td>'.$element->getNumero().'</td>';
-                echo '<td>'.$element->getDescricao().'</td>';
-                echo '<td>'.$element->getJustificativa().'</td>';
-                echo '<td>'.$element->getSetor_id().'</td>';
-                echo '<td>
-                        <a href="?page=servico&select='.$element->getId().'" class="btn btn-info text-white">Select</a>
-                        <a href="?page=servico&edit='.$element->getId().'" class="btn btn-success text-white">Edit</a>
-                        <a href="?page=servico&delete='.$element->getId().'" class="btn btn-danger text-white">Delete</a>
-                      </td>';
+                echo '  <td>'.$element->getNumero().'</td>';
+                echo '  <td>'.$element->getDescricao().'</td>';
+                echo '  <td>'.$element->getSetorId().'</td>';
+                echo '  <td>
+                            <a href="?page=servico&select='.$element->getId().'" class="btn btn-info text-white">Select</a>
+                            <a href="?page=servico&edit='.$element->getId().'" class="btn btn-success text-white">Edit</a>
+                            <a href="?page=servico&delete='.$element->getId().'" class="btn btn-danger text-white">Delete</a>
+                        </td>';
                 echo '</tr>';
             }
             

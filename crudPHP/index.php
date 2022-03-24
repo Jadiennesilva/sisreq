@@ -82,6 +82,7 @@ if(isset($_GET['ajax'])){
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="tema.css" />
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" />
 </head>
 <body>
@@ -100,7 +101,7 @@ if(isset($_GET['ajax'])){
             
       <section class="jumbotron text-center">
         <div class="container">
-          <h1 class="jumbotron-heading">SisReq</h1>
+          <h1 class="jumbotron-heading">Bem vindo ao Sistema de Requerimento!</h1>
               
         </div>
       </section>
@@ -168,9 +169,9 @@ if(isset($_GET['page'])){
       <div class="container">
         <p class="float-right">
           <a href="#">Voltar ao topo</a>
-        </p>
-        <p>Este é um software desenvolvido automaticamente pelo escritor de Software.</p>
-        <p>Novo no Escritor De Software? Acesse <a href="https://getcrudbyuml.com">GetCrudbyUml.com</a>.</p>
+        </p> 
+          <img src="https://ru.cedro.ifce.edu.br/images/ifce.png" alt="">
+             <p> S6 de Informática</p>
       </div>
     </footer>
             

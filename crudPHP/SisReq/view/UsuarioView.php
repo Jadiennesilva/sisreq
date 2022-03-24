@@ -15,7 +15,7 @@ class UsuarioView {
 		echo '
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary m-3" data-toggle="modal" data-target="#modalAddUsuario">
-  Adicionar
+  Adicionar informações de usuário
 </button>
 
 <!-- Modal -->
@@ -38,10 +38,11 @@ class UsuarioView {
                                             <label for="login">Login</label>
                                             <input type="text" class="form-control"  name="login" id="login" placeholder="Login">
                                         </div>
+                                        
 
                                         <div class="form-group">
                                             <label for="senha">Senha</label>
-                                            <input type="text" class="form-control"  name="senha" id="senha" placeholder="Senha">
+                                            <input type="password" class="form-control"  name="senha" id="senha" placeholder="Senha">
                                         </div>
                                         <div class="form-group">
                                           <label for="tipo">Tipo</label>
@@ -61,7 +62,7 @@ class UsuarioView {
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
         <button form="insert_form_usuario" type="submit" class="btn btn-primary">Cadastrar</button>
       </div>
     </div>

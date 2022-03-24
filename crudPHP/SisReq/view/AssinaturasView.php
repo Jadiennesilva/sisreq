@@ -15,7 +15,7 @@ class AssinaturasView {
 		echo '
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary m-3" data-toggle="modal" data-target="#modalAddAssinaturas">
-  Adicionar
+  Adicionar informações de assinaturas
 </button>
 
 <!-- Modal -->
@@ -59,7 +59,7 @@ class AssinaturasView {
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
         <button form="insert_form_assinaturas" type="submit" class="btn btn-primary">Cadastrar</button>
       </div>
     </div>
